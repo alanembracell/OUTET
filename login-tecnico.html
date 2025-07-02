@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Técnico - Embracell</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="embracell-logo.png" alt="Logo Embracell" class="logo" />
+  </header>
+
+  <main>
+    <h1>Login do Técnico</h1>
+    <form onsubmit="return verificarLoginTecnico()">
+      <input type="text" id="usuario" placeholder="Usuário" required />
+      <input type="password" id="senha" placeholder="Senha" required />
+      <button type="submit" class="btn">Entrar</button>
+    </form>
+    <p id="mensagem" style="color: yellow;"></p>
+  </main>
+
+  <footer>
+    <p>© 2025 Embracell Company</p>
+  </footer>
+
+  <script>
+    function verificarLoginTecnico() {
+      const usuario = document.getElementById('usuario').value;
+      const senha = document.getElementById('senha').value;
+      const mensagem = document.getElementById('mensagem');
+
+      if (usuario === 'francisco' && senha === '1234') {
+        window.location.href = 'painel-tecnico.html';
+      } else {
+        mensagem.textContent = 'Usuário ou senha incorretos.';
+      }
+
+      return false;
+    }
+  </script>
+</body>
+</html>

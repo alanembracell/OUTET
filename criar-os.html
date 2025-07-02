@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Criar OS - Embracell</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="embracell-logo.png" alt="Logo Embracell" class="logo" />
+  </header>
+
+  <main>
+    <h1>Criar Nova Ordem de Serviço</h1>
+    <form id="formCriarOS">
+      <input type="text" id="cliente" placeholder="Nome do Cliente" required />
+      <input type="text" id="marca" placeholder="Marca do Aparelho" required />
+      <input type="text" id="modelo" placeholder="Modelo" required />
+      <textarea id="defeito" placeholder="Descreva o defeito" required></textarea>
+      <button type="submit" class="btn">Gerar OS</button>
+    </form>
+    <div id="osGerada" class="resultado"></div>
+  </main>
+
+  <footer>
+    <p>© 2025 Embracell Company</p>
+  </footer>
+
+  <script src="firebase-config.js"></script>
+  <script>
+    document.getElementById("formCriarOS").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const cliente = document.getElementById("cliente").value;
+      const marca = document.getElementById("marca").value;
+      const modelo = document.getElementById("modelo").value;
+      const defeito = document.getElementById("defeito").value;
+      const numeroOS = "OS" + Math.floor(Math.random() * 1000000);
+      const osGerada = document.getElementById("osGerada");
+
+      // Simulação do envio da OS
+      osGerada.innerHTML = `<p>OS <strong>${numeroOS}</strong> gerada com sucesso!<br>Compartilhe este número com o cliente.</p>`;
+    });
+  </script>
+</body>
+</html>

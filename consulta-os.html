@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Consultar OS - Embracell</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="embracell-logo.png" alt="Logo Embracell" class="logo" />
+  </header>
+
+  <main>
+    <h1>Consulta de Ordem de Serviço</h1>
+    <form id="consultaForm">
+      <input type="text" id="numeroOS" placeholder="Digite o número da OS" required />
+      <button type="submit" class="btn">Buscar</button>
+    </form>
+
+    <div id="resultadoOS" class="resultado"></div>
+  </main>
+
+  <footer>
+    <p>© 2025 Embracell Company</p>
+  </footer>
+
+  <script src="firebase-config.js"></script>
+  <script>
+    document.getElementById("consultaForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const os = document.getElementById("numeroOS").value;
+      const resultado = document.getElementById("resultadoOS");
+
+      resultado.innerHTML = "<p>Buscando OS...</p>";
+
+      // Simulação de busca
+      setTimeout(() => {
+        resultado.innerHTML = "<p>Ordem de Serviço não encontrada. Verifique o número.</p>";
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
